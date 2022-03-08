@@ -65,7 +65,9 @@
         app:layout_constraintBottom_toTopOf="@id/buttonSuma"
         app:layout_constraintLeft_toRightOf="@id/button6"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/buttonMultiplicacion" />
+        app:layout_constraintTop_toBottomOf="@id/buttonMultiplicacion"
+        android:onClick="getOperador"
+        />
 
     <Button
         android:id="@+id/button8"
@@ -83,13 +85,15 @@
         android:id="@+id/buttonDivision"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="/"
+        android:text="÷"
         android:textSize="25dp"
         android:backgroundTint="@color/dark_gray2"
         app:layout_constraintBottom_toTopOf="@id/buttonMultiplicacion"
         app:layout_constraintLeft_toRightOf="@id/buttonPorcentaje"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextNumber" />
+        app:layout_constraintTop_toBottomOf="@id/editTextNumber"
+        android:onClick="getOperador"
+        />
 
     <Button
         android:id="@+id/buttonSuma"
@@ -101,7 +105,9 @@
         app:layout_constraintBottom_toTopOf="@id/buttonIgual"
         app:layout_constraintLeft_toRightOf="@id/button3"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/buttonResta" />
+        app:layout_constraintTop_toBottomOf="@id/buttonResta"
+        android:onClick="getOperador"
+        />
 
     <Button
         android:id="@+id/button4"
@@ -132,13 +138,15 @@
         android:id="@+id/buttonMultiplicacion"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="x"
+        android:text="×"
         android:textSize="25dp"
         android:backgroundTint="@color/dark_gray2"
         app:layout_constraintBottom_toTopOf="@id/buttonResta"
         app:layout_constraintLeft_toRightOf="@id/button9"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/buttonDivision" />
+        app:layout_constraintTop_toBottomOf="@id/buttonDivision"
+        android:onClick="getOperador"
+        />
 
     <Button
         android:id="@+id/button3"

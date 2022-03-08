@@ -10,6 +10,8 @@ import com.example.kotlin.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    var firstvalue: Double = 0.0
+    var operator: Char = '0'
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,8 +27,51 @@ class MainActivity : AppCompatActivity() {
             binding.editTextNumber.setText(binding.editTextNumber.text.dropLast(1))
         }
 
+        binding.buttonIgual.setOnClickListener{
+            when(operator){
+                '+' -> { binding.editTextNumber.setText("${firstvalue + binding.editTextNumber.text.toString().toDouble()}") }
+                '-' -> { binding.editTextNumber.setText("${firstvalue - binding.editTextNumber.text.toString().toDouble()}") }
+                '÷' -> { binding.editTextNumber.setText("${firstvalue / binding.editTextNumber.text.toString().toDouble()}") }
+                '×' -> { binding.editTextNumber.setText("${firstvalue * binding.editTextNumber.text.toString().toDouble()}") }
+
+                else -> binding.editTextNumber.setText("ERROR")
+            }
+        }
+
+        binding.buttonPorcentaje.setOnClickListener{
+
+            binding.editTextNumber.setText(percentage(operator))
+            }
+
+
       //  binding.buttonClear.setOnClickListener{
       //    Toast.makeText(this,"ejemplo", Toast.LENGTH_LONG).show() }
+    }
+
+    fun percentage(operatorTouse: Char) : String{
+        when(operatorTouse){
+            '+' -> {return "${firstvalue + (firstvalue*binding.editTextNumber.text.toString().toDouble()/100)}"}
+            '-' -> {return "${firstvalue - (firstvalue*binding.editTextNumber.text.toString().toDouble()/100)}"}
+            '0' -> {return "${binding.editTextNumber.text.toString().toDouble()/100}"}
+            else -> { return "Error %"}
+        }
+    }
+
+    fun getOperador(view: View){
+        val button = view as Button
+
+        operator = button.text.get(0)
+
+    /*    operator = when(button.id){
+            binding.buttonDivision.id -> {'÷'}
+            binding.buttonMultiplicacion.id -> {'×'}
+            binding.buttonSuma.id -> {'+'}
+            binding.buttonResta.id -> {'-'}
+            else -> {'0'}
+        } */
+
+        firstvalue = binding.editTextNumber.text.toString().toDouble()
+        binding.editTextNumber.text.clear()
     }
 
     fun numberButtonClicked(view: View){
